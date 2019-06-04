@@ -1,0 +1,22 @@
+// Place all the styles related to the description controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+/* content ==================================== */
+
+.container {
+  width: 60%;
+  margin: 0 auto;
+}
+
+.container h1 {
+  text-align: center;
+  margin: 0 auto;
+  font-size: 28px;
+}
+
+.content li {
+  border :solid 1.5px dimgray;
+  margin: 6px 0;
+  padding: 20px 30px;
+  background-color: white;
+}

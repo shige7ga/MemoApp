@@ -1,0 +1,10 @@
+<div class="main">
+  <div class="container">
+    <h1>メモ一覧</h1>
+    <% @descriptions.each do |description| %>
+      <ul class="content">
+        <li><p><%= description.content %></p></li>
+      </ul>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,11 @@
+<div class="main">
+  <div class="container">
+    <h1>メモ編集</h1>
+    <div class="form">
+      <%= form_tag "/description/#{@description.id}/update" do %>
+        <textarea name="content"><%= @description.content %></textarea>
+        <input type="submit" value="編集する">
+      <% end %>
+    </div>
+  </div>
+</div>

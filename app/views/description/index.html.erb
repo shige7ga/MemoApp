@@ -2,9 +2,15 @@
   <div class="container">
     <h1>メモ一覧</h1>
     <% @descriptions.each do |description| %>
-      <ul class="content">
-        <li><p><%= description.content %></p></li>
-      </ul>
+      <div class="content-framework">
+        <div class="content">
+          <p><%= description.content %></p>
+        </div>
+        <div class="content-right">
+          <p><i class="fas fa-edit"></i> <%= link_to("編集", "/description/#{description.id}/edit") %></p>
+          <p><i class="fas fa-trash-alt"></i> <%= link_to("削除", "/description/#{description.id}/delete") %></p>
+        </div>
+      </div>
     <% end %>
   </div>
 </div>

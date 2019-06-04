@@ -14,9 +14,19 @@
   font-size: 28px;
 }
 
-.content li {
+.content-framework {
   border :solid 1.5px dimgray;
   margin: 6px 0;
-  padding: 20px 30px;
+  padding: 15px 30px;
   background-color: white;
+  overflow: auto;
+  .content {
+    float: left;
+    width: 80%;
+  }
+  .content-right {
+    float: left;
+    width: 20%;
+    text-align: right;
+  }
 }

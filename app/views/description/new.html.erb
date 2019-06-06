@@ -4,6 +4,7 @@
     <h1>新しくメモる</h1>
     <div class="form">
       <%= form_tag "/description/create" do %>
+        タイトル：<input class="memoTitle" type="text" name="memoTitle">
         <textarea name="content"></textarea>
         <input type="submit" value="メモる">
       <% end %>

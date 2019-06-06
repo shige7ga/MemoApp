@@ -8,8 +8,17 @@ class DescriptionController < ApplicationController
   
   def create
     @description = Description.new(content: params[:content])
+    if params[:memoTitle].empty?
+      @description.memoTitle = "タイトルなし"
+    else
+      @description.memoTitle = params[:memoTitle]
+    end
     @description.save
     redirect_to "/"
+  end
+  
+  def details
+    @description = Description.find_by(id: params[:id])
   end
   
   def delete

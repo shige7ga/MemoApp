@@ -1,7 +1,7 @@
 // Place all the styles related to the description controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-/* content ==================================== */
+/* メモの内容について ==================================== */
 
 .container {
   width: 60%;
@@ -20,13 +20,25 @@
   padding: 15px 30px;
   background-color: white;
   overflow: auto;
+  .content-title{
+    border-bottom: solid 1px dimgray;
+    font-size: 18px;
+  }
   .content {
     float: left;
-    width: 80%;
+    width: 100%;
+    p {
+      font-size: 16px;
+    }
   }
-  .content-right {
+}
+
+/* 詳細ページ =========================================*/
+.details-menu {
+  float: right;
+  li {
     float: left;
-    width: 20%;
-    text-align: right;
+    margin: 5px 0 5px 20px;
+    padding: 2px 15px;
   }
 }

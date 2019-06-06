@@ -4,6 +4,7 @@
     <h1>メモ編集</h1>
     <div class="form">
       <%= form_tag "/description/#{@description.id}/update" do %>
+        タイトル：<input class="memoTitle" type="text" name="memoTitle" value="<%= @description.memoTitle %>">
         <textarea name="content"><%= @description.content %></textarea>
         <input type="submit" value="編集する">
       <% end %>

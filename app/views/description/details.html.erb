@@ -1,0 +1,20 @@
+<% provide(:title, "メモ詳細") %>
+<div class="main">
+  <div class="container">
+    <h1>メモ詳細</h1>
+      <div class="content-framework">
+        <div class="content-title">
+          <%= @description.memoTitle %>
+        </div>
+        <div class="content">
+          <p><%= @description.content %></p>
+        </div>
+      </div>
+      <div class="details-menu">
+        <ul>
+          <li class="btn"><i class="fas fa-edit"></i> <%= link_to("編集", "/description/#{@description.id}/edit") %></li>
+          <li class="btn"><i class="fas fa-trash-alt"></i> <%= link_to("削除", "/description/#{@description.id}/delete") %></li>
+        </ul>
+      </div>
+  </div>
+</div>

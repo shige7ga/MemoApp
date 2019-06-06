@@ -1,4 +1,4 @@
-/* reset ======================================= */
+/* 初期化 ======================================= */
 html {
   background-color: #FFFAF0;
   font: 'Avenir Next', 'Hiragino Sans', sans-serif;
@@ -29,6 +29,15 @@ body {
   position: absolute;
   top: 80px;
   width: 100%;
+}
+
+.btn {
+  background-color: #ffe4e1;
+  color: dimgray;
+  cursor: pointer;
+  font-size: 16px;
+  border: solid 2px dimgray;
+  border-radius: 10px;
 }
 
 /* header ======================================== */
@@ -63,12 +72,20 @@ header .logo {
 .form {
   margin: 5px auto;
   max-width: 600px;
+  .memoTitle {
+    font-size: 16px;
+    border: solid 2px dimgray;
+    width: 50%;
+    margin-bottom: 5px;
+    line-height: 25px;
+  }
 }
 
 .form textarea {
   width: 100%;
   min-height: 110px;
   font-size: 16px;
+  border: solid 2px dimgray;
 }
 
 .form input[type="submit"] {
@@ -79,5 +96,6 @@ header .logo {
   width: 100px;
   margin-top: 8px;
   float: right;
-  border-radius: 2px;
+  border-radius: 10px;
+  border: solid 2px dimgray;
 }

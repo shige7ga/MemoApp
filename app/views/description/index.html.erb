@@ -3,12 +3,11 @@
     <h1>メモ一覧</h1>
     <% @descriptions.each do |description| %>
       <div class="content-framework">
+        <div class="content-title">
+          <%= link_to description.memoTitle, "/description/#{description.id}/details" %>
+        </div>
         <div class="content">
           <p><%= description.content %></p>
-        </div>
-        <div class="content-right">
-          <p><i class="fas fa-edit"></i> <%= link_to("編集", "/description/#{description.id}/edit") %></p>
-          <p><i class="fas fa-trash-alt"></i> <%= link_to("削除", "/description/#{description.id}/delete") %></p>
         </div>
       </div>
     <% end %>

@@ -22,7 +22,21 @@
   overflow: auto;
   .content-title{
     border-bottom: solid 1px dimgray;
+    padding-bottom: 5px;
     font-size: 18px;
+    .details-btn{
+      width: 20%;
+      float: right;
+      text-align: center;
+      margin-bottom: 5px;
+    }
+  }
+  .importance{
+    margin: 10px 0;
+    ul, li {
+      margin-right: 3px;
+      display: inline;
+    }
   }
   .content {
     float: left;

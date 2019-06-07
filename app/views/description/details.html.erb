@@ -6,6 +6,17 @@
         <div class="content-title">
           <%= @description.memoTitle %>
         </div>
+        <div class="importance">
+          重要度：
+          <ul>
+            <% @description.importance.times do %>
+              <li><i class="fas fa-star"></i></li>
+            <% end %>
+            <% (5-@description.importance).times do %>
+              <li><i class="far fa-star"></i></li>
+            <% end %>
+          </ul>
+        </div>
         <div class="content">
           <p><%= @description.content %></p>
         </div>

@@ -3,6 +3,11 @@
   <div class="container">
     <h1>メモ編集</h1>
     <div class="form">
+      <% @description.errors.full_messages.each do |message| %>
+        <div class="error-message">
+          <%= message %>
+        </div>
+      <% end %>
       <%= form_tag "/description/#{@description.id}/update" do %>
         タイトル：<input class="memoTitle" type="text" name="memoTitle" value="<%= @description.memoTitle %>"><br>
         重要度：

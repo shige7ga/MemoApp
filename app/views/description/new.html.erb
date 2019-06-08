@@ -3,15 +3,20 @@
   <div class="container">
     <h1>新しくメモる</h1>
     <div class="form">
+      <% @description.errors.full_messages.each do |message| %>
+        <div class="error-message">
+          <%= message %>
+        </div>
+      <% end %>
       <%= form_tag "/description/create" do %>
-        タイトル：<input class="memoTitle" type="text" name="memoTitle"><br>
+        タイトル：<input class="memoTitle" type="text" name="memoTitle" value="<%= @description.memoTitle %>"><br>
         重要度：
         <input type="radio" name="importance" value="1" checked>1
         <input type="radio" name="importance" value="2">2
         <input type="radio" name="importance" value="3">3
         <input type="radio" name="importance" value="4">4
         <input type="radio" name="importance" value="5">5
-        <textarea name="content"></textarea>
+        <textarea name="content"><%= @description.content %></textarea>
         <input type="submit" value="メモる">
       <% end %>
     </div>

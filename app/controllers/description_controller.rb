@@ -4,6 +4,7 @@ class DescriptionController < ApplicationController
   end
   
   def new
+    @description = Description.new
   end
   
   def create
@@ -16,8 +17,11 @@ class DescriptionController < ApplicationController
     else
       @description.memoTitle = params[:memoTitle]
     end
-    @description.save
-    redirect_to "/"
+    if @description.save
+      redirect_to "/"
+    else
+      render "description/new"
+    end
   end
   
   def details
@@ -39,7 +43,10 @@ class DescriptionController < ApplicationController
     @description.memoTitle = params[:memoTitle]
     @description.importance = params[:importance]
     @description.content = params[:content]
-    @description.save
-    redirect_to "/"
+    if @description.save
+      redirect_to "/"
+    else
+      render "description/edit"
+    end
   end
 end

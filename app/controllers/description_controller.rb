@@ -5,6 +5,7 @@ class DescriptionController < ApplicationController
   
   def new
     @description = Description.new
+    @importanceValues = [1, 2, 3, 4, 5]
   end
   
   def create
@@ -36,6 +37,7 @@ class DescriptionController < ApplicationController
   
   def edit
     @description = Description.find_by(id: params[:id])
+    @importanceValues = [1, 2, 3, 4, 5]
   end
   
   def update

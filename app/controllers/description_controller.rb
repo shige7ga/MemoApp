@@ -51,4 +51,14 @@ class DescriptionController < ApplicationController
       render "description/edit"
     end
   end
+  
+  def allDelete
+    params[:allDeleteDescriptions].each do |deleteId, checkedId|
+      if checkedId == "1"
+        @description = Description.find_by(id: deleteId)
+        @description.destroy
+      end
+    end
+    redirect_to("/")
+  end
 end

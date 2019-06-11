@@ -6,6 +6,7 @@ class DescriptionController < ApplicationController
   def new
     @description = Description.new
     @importanceValues = [1, 2, 3, 4, 5]
+    @description.importance = 1
   end
   
   def create
@@ -13,6 +14,7 @@ class DescriptionController < ApplicationController
       content: params[:content],
       importance: params[:importance].to_i
       )
+    @importanceValues = [1, 2, 3, 4, 5]
     if params[:memoTitle].empty?
       @description.memoTitle = "タイトルなし"
     else

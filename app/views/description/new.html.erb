@@ -12,7 +12,7 @@
         タイトル：<input class="memoTitle" type="text" name="memoTitle" value="<%= @description.memoTitle %>"><br>
         重要度：
         <% @importanceValues.each do |importanceValue| %>
-          <% if importanceValue == 1 %>
+          <% if importanceValue == @description.importance %>
             <input type="radio" name="importance" value="<%= importanceValue %>" checked><%= importanceValue %>
           <% else %>
             <input type="radio" name="importance" value="<%= importanceValue %>"><%= importanceValue %>

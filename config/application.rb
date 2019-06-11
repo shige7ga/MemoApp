@@ -15,6 +15,10 @@ module MemoApp
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
     
+    # 20190611更新(DBへデータ投入時の時刻設定のため)
+    config.time_zone = 'Tokyo'
+    config.active_record.default_timezone = :local
+    
     # エラーメッセージ日本語化_20190608
     config.i18n.default_locale = :ja
     # ja.ymlファイルの読み込み(config/locales以下のymlファイル全て読み込む)

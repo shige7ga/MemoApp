@@ -42,11 +42,15 @@
     }
   }
   .content {
-    float: left;
     width: 100%;
+    margin: 25px 0;
     p {
       font-size: 16px;
     }
+  }
+  .created-datetime{
+    border-top: solid 1px dimgray;
+    padding-top: 10px;
   }
 }
 

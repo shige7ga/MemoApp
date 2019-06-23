@@ -1,0 +1,20 @@
+<div class="form">
+      <% description.errors.full_messages.each do |message| %>
+        <div class="error-message">
+          <%= message %>
+        </div>
+      <% end %>
+      <%= form_for(description) do |f| %>
+        タイトル：<%= f.text_field :memoTitle, class: "memoTitle"%><br>
+        重要度：
+        <% @importanceValues.each do |importanceValue| %>
+          <% if importanceValue == description.importance %>
+            <%= f.radio_button :importance, importanceValue, :checked=>'checked' %><%= importanceValue %>
+          <% else %>
+            <%= f.radio_button :importance, importanceValue %><%= importanceValue %>
+          <% end %>
+        <% end %>
+        <%= f.text_area :content %>
+        <%= f.submit %>
+      <% end %>
+    </div>

@@ -1,7 +1,7 @@
 <div class="main">
   <div class="container">
     <h1>メモ一覧</h1>
-    <%= form_tag("/description/allDelete") do %>
+    <%= form_tag("/descriptions/allDelete") do %>
       <input class="btn all-delete-btn" type="submit" value="一括削除">
       <% @descriptions.each do |description| %>
         <div class="content-framework">
@@ -10,7 +10,7 @@
           </div>
           <div class="content-title">
             <%= description.memoTitle %>
-            <div class="btn details-btn"><%= link_to "詳細へ", "/description/#{description.id}/details" %></div>
+            <div class="btn details-btn"><i class="far fa-file-alt"></i> <%= link_to "詳細へ", description %></div>
           </div>
           <div class="content">
             <p><%= description.content %></p>

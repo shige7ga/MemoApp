@@ -26,8 +26,12 @@
       </div>
       <div class="details-menu">
         <ul>
-          <li class="btn"><i class="fas fa-edit"></i> <%= link_to("編集", "/description/#{@description.id}/edit") %></li>
-          <li class="btn"><i class="fas fa-trash-alt"></i> <%= link_to("削除", "/description/#{@description.id}/delete", {method: "post"}) %></li>
+          <li class="btn">
+            <i class="fas fa-edit"></i> <%= link_to "編集", edit_description_path(@description) %>
+          </li>
+          <li class="btn">
+            <i class="fas fa-trash-alt"></i> <%= link_to "削除", @description, method: :delete, data: {confirm: "タイトル「#{@description.memoTitle}」のメモを本当に削除してもよろしいですか？"} %>
+          </li>
         </ul>
       </div>
   </div>

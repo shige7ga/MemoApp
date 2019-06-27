@@ -3,36 +3,14 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 /* メモの内容について ==================================== */
 
-.container {
-  width: 60%;
-  margin: 0 auto;
-}
-
-.container h1 {
-  text-align: center;
-  margin: 0 auto;
-  font-size: 28px;
-}
-
 .content-framework {
-  border :solid 1.5px dimgray;
-  margin: 6px 0;
-  padding: 15px 30px;
-  background-color: white;
-  overflow: auto;
   .all-delete-function{
     float: left;
   }
   .content-title{
     border-bottom: solid 1px dimgray;
-    padding-bottom: 5px;
+    padding-bottom: 10px;
     font-size: 18px;
-    .details-btn{
-      width: 20%;
-      float: right;
-      text-align: center;
-      margin-bottom: 5px;
-    }
   }
   .importance{
     margin: 10px 0;
@@ -51,15 +29,5 @@
   .created-datetime{
     border-top: solid 1px dimgray;
     padding-top: 10px;
-  }
-}
-
-/* 詳細ページ =========================================*/
-.details-menu {
-  float: right;
-  li {
-    float: left;
-    margin: 5px 0 5px 20px;
-    padding: 2px 15px;
   }
 }

@@ -1,3 +1,4 @@
+<% provide(:title, "メモ一覧") %>
 <div class="main">
   <div class="container">
     <h1>メモ一覧</h1>
@@ -8,9 +9,9 @@
           <div class="content-title">
             <%= check_box "allDeleteDescriptions", "#{description.id}", class: "all-delete-function" %>
             <%= description.memoTitle %>
-            <div class="btn details-btn">
-              <i class="far fa-file-alt"></i> <%= link_to "詳細へ", description %>
-            </div>
+            <%= link_to description, class: "btn details-btn" do %>
+              <i class="far fa-file-alt"></i> 詳細へ
+            <% end %>
           </div>
           <p class="content"><%= description.content %></p>
         </div>

@@ -27,10 +27,14 @@
       <div class="details-menu">
         <ul>
           <li class="btn">
-            <i class="fas fa-edit"></i> <%= link_to "編集", edit_description_path(@description) %>
+            <%= link_to edit_description_path(@description) do %>
+              <i class="fas fa-edit"></i> 編集
+            <% end %>
           </li>
           <li class="btn">
-            <i class="fas fa-trash-alt"></i> <%= link_to "削除", @description, method: :delete, data: {confirm: "タイトル「#{@description.memoTitle}」のメモを本当に削除してもよろしいですか？"} %>
+            <%= link_to @description, method: :delete, data: {confirm: "タイトル「#{@description.memoTitle}」のメモを本当に削除しますか？"} do %>
+              <i class="fas fa-trash-alt"></i> 削除
+            <% end %>
           </li>
         </ul>
       </div>

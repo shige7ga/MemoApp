@@ -40,6 +40,41 @@ body {
   border-radius: 10px;
 }
 
+.container {
+  width: 60%;
+  margin: 0 auto;
+}
+
+.container h1 {
+  text-align: center;
+  margin: 0 auto;
+  font-size: 28px;
+}
+
+.content-framework {
+  border :solid 1.5px dimgray;
+  margin: 6px 0;
+  padding: 15px 30px;
+  background-color: white;
+  overflow: auto;
+}
+
+.details-btn{
+  width: 20%;
+  float: right;
+  text-align: center;
+}
+
+/* 共通(詳細ページ) ===================================*/
+.details-menu {
+  float: right;
+  li {
+    float: left;
+    margin: 5px 0 5px 20px;
+    padding: 2px 15px;
+  }
+}
+
 /* header ======================================== */
 header {
   height: 60px;
@@ -72,13 +107,25 @@ header .logo {
 .form {
   margin: 5px auto;
   max-width: 600px;
-  .memoTitle {
+  .input-text-field {
     font-size: 16px;
     border: solid 2px dimgray;
     width: 50%;
     margin-bottom: 5px;
     line-height: 25px;
   }
+  .form-user-content {
+    width: 100%;
+    padding: 10px;
+    border: solid 2px dimgray;
+    p {
+      font-size: 20px;
+      margin: 0 auto;
+      text-align: center;
+      padding-bottom: 5px;
+    }
+  }
+  
 }
 
 .form textarea {

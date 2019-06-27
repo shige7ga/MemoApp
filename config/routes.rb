@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
-  get 'users/index'
-
-  root 'descriptions#index'
+  # root 'descriptions#index'
+  
+  # descritptions
   resources :descriptions
   post "descriptions/allDelete"
+  
+  # users
+  resources :users
+  
 end

@@ -1,0 +1,16 @@
+<div class="form">
+  <% user.errors.full_messages.each do |message| %>
+    <div class="error-message">
+      <%= message %>
+    </div>
+  <% end %>
+  <%= form_for(user) do |f| %>
+    <div class="form-user-content">
+      <p><%= f.label :name, "名前" %></p>
+      <p><%= f.text_field :name, class: "input-text-field" %></p>
+      <p><%= f.label :email, "メールアドレス" %></p>
+      <p><%= f.text_field :email, class: "input-text-field" %></p>
+    </div>
+    <%= f.submit %>
+  <% end %>
+</div>

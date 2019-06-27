@@ -20,15 +20,16 @@ class DescriptionsController < ApplicationController
       @description.memoTitle = "タイトルなし"
     end
     if @description.save
-      redirect_to "/"
+      #"/descriptions"へリダイレクト
+      redirect_to descriptions_path
     else
-      render "descriptions/new"
+      render :new
     end
   end
   
   def destroy
     @description.destroy
-    redirect_to "/"
+    redirect_to descriptions_path
   end
   
   def edit
@@ -36,9 +37,9 @@ class DescriptionsController < ApplicationController
   
   def update
     if @description.update(description_params)
-      redirect_to "/"
+      redirect_to descriptions_path
     else
-      render "descriptions/edit"
+      render :edit
     end
   end
   
@@ -49,7 +50,7 @@ class DescriptionsController < ApplicationController
         @description.destroy
       end
     end
-    redirect_to "/"
+    redirect_to descriptions_path
   end
 end
 

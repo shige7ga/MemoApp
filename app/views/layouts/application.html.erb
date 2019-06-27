@@ -11,9 +11,12 @@
   <body>
     <!-- header -->
     <header>
-      <div class="logo"><%= link_to "Memo App", "/" %></div>
+      <div class="logo"><%= link_to "Memo App", "/descriptions" %></div>
       <ul class="menu-bar">
-        <li><%= link_to "新しくメモる", "/descriptions/new" %></li>
+        <li><%= link_to "メモる", new_description_path %></li>
+        <li><%= link_to "投稿一覧", descriptions_path %></li>
+        <li><%= link_to "ユーザー一覧", users_path %></li>
+        <li><%= link_to "ユーザー登録", new_user_path %></li>
       </ul>
     </header>
     <!-- contents -->

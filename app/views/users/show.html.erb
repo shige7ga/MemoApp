@@ -11,10 +11,14 @@
       <div class="details-menu">
         <ul>
           <li class="btn">
-            <i class="fas fa-user-edit"></i> 編集
+            <%= link_to edit_user_path(@user) do %>
+              <i class="fas fa-user-edit"></i> 編集
+            <% end %>
           </li>
           <li class="btn">
-            <i class="fas fa-trash-alt"></i> 削除
+            <%= link_to @user, method: :delete, data: {confirm: "ユーザー「#{@user.name}」を本当に削除しますか？"} do %>
+              <i class="fas fa-trash-alt"></i> 削除
+            <% end %>
           </li>
         </ul>
       </div>

@@ -7,3 +7,6 @@ ja:
         memoTitle: タイトル
         content: メモの内容
         importance: 重要度
+      user:
+        name: 名前
+        email: メールアドレス

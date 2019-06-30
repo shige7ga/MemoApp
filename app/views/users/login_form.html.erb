@@ -1,0 +1,20 @@
+<% provide(:title, "ログイン画面") %>
+<div class="main">
+  <div class="container">
+    <h1>ログイン画面</h1>
+    <div class="form">
+      <div class="error-message">
+        <%= @error_message %>
+      </div>
+      <%= form_tag "/login" do %>
+        <div class="form-user-content">
+          <p>メールアドレス</p>
+          <p><%= email_field :user, :email, value: "#{@email}", class: "input-text-field" %></p>
+          <p>パスワード</p>
+          <p><%= password_field :user, :password, value: "", class: "input-text-field" %></p>
+        </div>
+        <%= submit_tag "ログイン" %>
+      <% end %>
+    </div>
+  </div>
+</div>

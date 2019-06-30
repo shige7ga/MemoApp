@@ -9,7 +9,9 @@
       <p><%= f.label :name, "名前" %></p>
       <p><%= f.text_field :name, class: "input-text-field" %></p>
       <p><%= f.label :email, "メールアドレス" %></p>
-      <p><%= f.text_field :email, class: "input-text-field" %></p>
+      <p><%= f.email_field :email, class: "input-text-field" %></p>
+      <p><%= f.label :password, "パスワード" %></p>
+      <p><%= f.password_field :password, class: "input-text-field" %></p>
     </div>
     <%= f.submit %>
   <% end %>

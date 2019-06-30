@@ -37,12 +37,34 @@ class UsersController < ApplicationController
     redirect_to users_path
   end
   
+  # ログイン関連アクション=============================
+  def login_form
+  end
+  
+  def login
+    @user = User.find_by(email: user_params[:email], password: user_params[:password])
+    if @user
+      session[:user_id] = @user.id
+      redirect_to descriptions_path
+    else
+      @error_message = "メールアドレスまたはパスワードが間違っています"
+      @email = user_params[:email]
+      render "users/login_form"
+    end
+  end
+  
+  def logout
+    session[:user_id] = nil
+    redirect_to "/login"
+  end
+  
+  # privateメソッド ===================================
   private
     def set_user
       @user = User.find(params[:id])
     end
     
     def user_params
-      params.require(:user).permit(:name, :email)
+      params.require(:user).permit(:name, :email, :password)
     end
 end

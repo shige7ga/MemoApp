@@ -5,6 +5,8 @@
     <%= favicon_link_tag('favicon.ico') %>
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <!--　jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <!-- Fontawesome -->
     <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
@@ -13,25 +15,31 @@
     <!-- header -->
     <header>
       <div class="logo">
-        <% if session[:user_id] %>
+        <% if @current_user %>
           <%= link_to "Memo App", "/descriptions" %>
         <% else %>
           <%= link_to "Memo App", "/" %>
         <% end %>
       </div>
       <ul class="menu-bar">
-        <% if session[:user_id] %>
+        <% if @current_user %>
+          <li><%= link_to "ログアウト", "/logout", {method: :post} %></li>
           <li><%= link_to "メモる", new_description_path %></li>
           <li><%= link_to "投稿一覧", descriptions_path %></li>
           <li><%= link_to "ユーザー一覧", users_path %></li>
-          <li><%= link_to "ログアウト", "/logout", {method: :post} %></li>
-          <li>ログインユーザーID：<%= session[:user_id] %></li>
+          <li><%= link_to "ユーザー：#{@current_user.name}", user_path(@current_user) %></li>
         <% else %>
           <li><%= link_to "ユーザー登録", new_user_path %></li>
           <li><%= link_to "ログイン", "/login" %></li>
         <% end %>
       </ul>
     </header>
+    <!-- flash -->
+    <% if flash[:notice] %>
+      <div class="flash">
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
     <!-- contents -->
     <%= yield %>
   </body>

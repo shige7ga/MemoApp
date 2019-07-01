@@ -1,6 +1,7 @@
 class DescriptionsController < ApplicationController
   before_action :set_description, only: [:show, :edit, :destroy, :update]
   before_action :set_impotanceValues, only: [:new, :create, :edit, :update]
+  before_action :authenticate_user
   
   def index
     @descriptions = Description.all.order(created_at: :desc)
@@ -20,6 +21,7 @@ class DescriptionsController < ApplicationController
       @description.memoTitle = "タイトルなし"
     end
     if @description.save
+      flash[:notice] = "メモを投稿しました"
       #"/descriptions"へリダイレクト
       redirect_to descriptions_path
     else
@@ -29,6 +31,7 @@ class DescriptionsController < ApplicationController
   
   def destroy
     @description.destroy
+    flash[:notice] = "メモを削除しました"
     redirect_to descriptions_path
   end
   
@@ -37,6 +40,7 @@ class DescriptionsController < ApplicationController
   
   def update
     if @description.update(description_params)
+      flash[:notice] = "メモを更新しました"
       redirect_to descriptions_path
     else
       render :edit
@@ -50,6 +54,7 @@ class DescriptionsController < ApplicationController
         @description.destroy
       end
     end
+    flash[:notice] = "選択したメモを一括削除しました"
     redirect_to descriptions_path
   end
 end

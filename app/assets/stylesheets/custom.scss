@@ -49,6 +49,8 @@ body {
   text-align: center;
   margin: 0 auto;
   font-size: 28px;
+  margin-top: 25px;
+  margin-bottom: 10px;
 }
 
 .content-framework {
@@ -80,6 +82,7 @@ header {
   height: 60px;
   width: 100%;
   position: fixed;
+  top: 0;
   z-index: 1;
   color: dimgray;
   background-color: pink;
@@ -102,6 +105,21 @@ header .logo {
   line-height: 60px;
   padding-left: 20px;
 }
+
+/* flash =============================================== */
+.flash {
+  text-align: center;
+  width: 40%;
+  height: 40px;
+  line-height: 40px;
+  font-size: 25px;
+    font-weight: bold;
+  background-color: #e45d55;
+  color: white;
+  margin: 0 auto;
+  margin-top: 60px;
+}
+
 
 /* form =============================================== */
 .form {

@@ -4,7 +4,6 @@
     <h1>ユーザー詳細</h1>
       <div class="content-framework">
         <ul>
-          <li><p class="user-name">ID:<%= @user.id %></p></li>
           <li><p class="user-name">名前：<%= @user.name %></p></li>
           <li><p class="user-email">メールアドレス：<%= @user.email %></p></li>
         </ul>
@@ -24,6 +23,26 @@
             </li>
           </ul>
         </div>
+      <% end %>
+      <h2>メモ一覧</h2>
+      <%= form_tag("/descriptions/allDelete") do %>
+        <% if (@user.id == @current_user.id) and (@user.descriptions.present?) %>
+          <%= submit_tag "一括削除", data: {confirm: "選択したメモを一括削除してもよろしいですか？"}, class: "btn" %>
+        <% end %>
+        <% @user.descriptions.each do |description| %>
+          <div class="content-framework">
+            <div class="content-title">
+              <% if @user.id == @current_user.id %>
+                <%= check_box "allDeleteDescriptions", "#{description.id}", class: "all-delete-function" %>
+              <% end %>
+              <%= description.memoTitle %>
+              <%= link_to description, class: "btn details-btn" do %>
+                <i class="far fa-file-alt"></i> 詳細へ
+              <% end %>
+            </div>
+            <p class="content"><%= description.content %></p>
+          </div>
+        <% end %>
       <% end %>
   </div>
 </div>

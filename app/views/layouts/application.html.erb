@@ -16,7 +16,7 @@
     <header>
       <div class="logo">
         <% if @current_user %>
-          <%= link_to "Memo App", "/descriptions" %>
+          <%= link_to "Memo App", descriptions_path %>
         <% else %>
           <%= link_to "Memo App", "/" %>
         <% end %>
@@ -25,7 +25,7 @@
         <% if @current_user %>
           <li><%= link_to "ログアウト", "/logout", {method: :post} %></li>
           <li><%= link_to "メモる", new_description_path %></li>
-          <li><%= link_to "投稿一覧", descriptions_path %></li>
+          <li><%= link_to "メモ一覧", descriptions_path %></li>
           <li><%= link_to "ユーザー一覧", users_path %></li>
           <li><%= link_to "ユーザー：#{@current_user.name}", user_path(@current_user) %></li>
         <% else %>

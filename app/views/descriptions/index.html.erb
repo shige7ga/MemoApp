@@ -2,20 +2,19 @@
 <div class="main">
   <div class="container">
     <h1>メモ一覧</h1>
-    <%= form_tag("/descriptions/allDelete") do %>
-      <%= submit_tag "一括削除", data: {confirm: "選択したメモを一括削除してもよろしいですか？"}, class: "btn" %>
       <% @descriptions.each do |description| %>
         <div class="content-framework">
           <div class="content-title">
-            <%= check_box "allDeleteDescriptions", "#{description.id}", class: "all-delete-function" %>
-            <%= description.memoTitle %>
+            タイトル：<%= description.memoTitle %>
             <%= link_to description, class: "btn details-btn" do %>
               <i class="far fa-file-alt"></i> 詳細へ
             <% end %>
           </div>
+          <div class="user-who-described">
+            投稿者：<%= description.user.name %>
+          </div>
           <p class="content"><%= description.content %></p>
         </div>
       <% end %>
-    <% end %>
   </div>
 </div>

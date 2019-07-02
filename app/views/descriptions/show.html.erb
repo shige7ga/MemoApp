@@ -4,7 +4,10 @@
     <h1>メモ詳細</h1>
       <div class="content-framework">
         <div class="content-title">
-          <%= @description.memoTitle %>
+          タイトル：<%= @description.memoTitle %>
+        </div>
+        <div class="user-who-described">
+          投稿者：<%= @description.user.name %>
         </div>
         <div class="importance">
           重要度：
@@ -24,19 +27,21 @@
           メモ日時：<%= @description.created_at.strftime("%Y年%m月%d日　%H時%M分") %>
         </div>
       </div>
-      <div class="details-menu">
-        <ul>
-          <li class="btn">
-            <%= link_to edit_description_path(@description) do %>
-              <i class="fas fa-edit"></i> 編集
-            <% end %>
-          </li>
-          <li class="btn">
-            <%= link_to @description, method: :delete, data: {confirm: "タイトル「#{@description.memoTitle}」のメモを本当に削除しますか？"} do %>
-              <i class="fas fa-trash-alt"></i> 削除
-            <% end %>
-          </li>
-        </ul>
-      </div>
+      <% if @description.user_id == @current_user.id %>
+        <div class="details-menu">
+          <ul>
+            <li class="btn">
+              <%= link_to edit_description_path(@description) do %>
+                <i class="fas fa-edit"></i> 編集
+              <% end %>
+            </li>
+            <li class="btn">
+              <%= link_to @description, method: :delete, data: {confirm: "タイトル「#{@description.memoTitle}」のメモを本当に削除しますか？"} do %>
+                <i class="fas fa-trash-alt"></i> 削除
+              <% end %>
+            </li>
+          </ul>
+        </div>
+      <% end %>
   </div>
 </div>

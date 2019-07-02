@@ -2,12 +2,14 @@ class DescriptionsController < ApplicationController
   before_action :set_description, only: [:show, :edit, :destroy, :update]
   before_action :set_impotanceValues, only: [:new, :create, :edit, :update]
   before_action :authenticate_user
+  before_action :ensure_correct_user, only: [:edit, :update, :destroy]
   
   def index
     @descriptions = Description.all.order(created_at: :desc)
   end
   
   def show
+    @user = User.find_by(id: @description.user_id)
   end
   
   def new
@@ -17,6 +19,7 @@ class DescriptionsController < ApplicationController
   
   def create
     @description = Description.new(description_params)
+    @description.user_id = @current_user.id
     if description_params[:memoTitle].empty?
       @description.memoTitle = "タイトルなし"
     end
@@ -48,14 +51,21 @@ class DescriptionsController < ApplicationController
   end
   
   def allDelete
+    @descriptions = []
     params[:allDeleteDescriptions].each do |deleteId, checkedId|
       if checkedId == "1"
-        @description = Description.find_by(id: deleteId)
-        @description.destroy
+        @descriptions.push(Description.find_by(id: deleteId))
       end
     end
-    flash[:notice] = "選択したメモを一括削除しました"
-    redirect_to descriptions_path
+    if @descriptions.blank?
+      flash[:notice] = "削除対象のメモが選択されていません"
+    else
+      @descriptions.each do |description|
+        description.destroy
+      end
+      flash[:notice] = "選択したメモを一括削除しました"
+    end
+    redirect_to user_path(@current_user)
   end
 end
 
@@ -70,4 +80,12 @@ private
   
   def description_params
     params.require(:description).permit(:memoTitle, :importance, :content)
+  end
+  
+  def ensure_correct_user
+    @description = Description.find(params[:id])
+    if @description.user_id != @current_user.id
+      flash[:notice] = "権限がありません"
+      redirect_to descriptions_path
+    end
   end
